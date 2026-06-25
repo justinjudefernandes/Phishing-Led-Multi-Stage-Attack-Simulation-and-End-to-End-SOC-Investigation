@@ -212,9 +212,10 @@ The attack chain progressed from phishing email interaction to credential theft,
 - Attempted lateral movement via RDP
 - Defender correlated multi-layer telemetry and triggered automated containment
 
-### Threat Hunting KQL  Queries:
+### Threat Hunting KQL Queries:
 - Looked for other users received the email with URL “docusign[.]com”.
-            ```EmailUrlInfo
+
+```EmailUrlInfo
             | where Url contains "docusign[.]com"
             | project Timestamp, NetworkMessageId, Url
             | join kind=inner (
