@@ -127,11 +127,11 @@ The attack chain progressed from phishing email interaction to credential theft,
 
 ### Indicators of Compromise (IOCs):
 - Endpoint Artifacts:
-        - mimikatz.exe (PID: 13544)
-        - mimidrv.sys
-        - powershell.exe (PID: 5356)
-        - lsass.exe (PID: 800) interaction observed
-        - explorer.exe (suspicious behavior)
+    - mimikatz.exe (PID: 13544)
+    - mimidrv.sys
+    - powershell.exe (PID: 5356)
+    - lsass.exe (PID: 800) interaction observed
+    - explorer.exe (suspicious behavior)
 - Device / System Artifacts:
         - WINDOWS11$ (machine account)
 - Network / Internal Activity: 
