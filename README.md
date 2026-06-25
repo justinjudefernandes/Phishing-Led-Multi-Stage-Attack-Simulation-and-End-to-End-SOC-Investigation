@@ -79,12 +79,10 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 <img width="635" height="373" alt="image" src="https://github.com/user-attachments/assets/c271fea5-ac51-4302-9ca7-67cdff2e8557" />
 <img width="806" height="430" alt="image" src="https://github.com/user-attachments/assets/73b9e693-b9d0-4567-a864-d688c52af4ab" />
 <img width="797" height="443" alt="image" src="https://github.com/user-attachments/assets/9222f877-5df4-4df7-aa41-9bdd988c6295" />
-
-
-
-
-
-
+<img width="803" height="422" alt="image" src="https://github.com/user-attachments/assets/47a0fde4-bec0-45a1-a66c-d7fb9a73de69" />
+<img width="801" height="409" alt="image" src="https://github.com/user-attachments/assets/acd92f84-1a62-461d-ae0c-e489821a9f36" />
+<img width="800" height="517" alt="image" src="https://github.com/user-attachments/assets/0f196026-a216-4a98-9627-0b2188d5dcaf" />
+<img width="802" height="512" alt="image" src="https://github.com/user-attachments/assets/2b2a18f0-090d-494a-907d-5e438a195788" />
 
 ### STEP 3: Compromising Endpoints (Endpoint Threat Simulation)
 - On the Windows 11 endpoint (Jenny’s machine), PowerShell was used to simulate attacker activity.
@@ -95,7 +93,17 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 - Microsoft Defender for Endpoint generated alerts under Incidents & Alerts.
 - Verified detection and correlation in the Microsoft Defender XDR portal.
 
-📌The below screenshots demonstrate policy enforcement and inspection results within Microsoft Defender.
+📌 Refer to the below screenshots:
+
+<img width="798" height="423" alt="image" src="https://github.com/user-attachments/assets/7e2e3f8e-40cf-4fa4-8e08-aa5ac2819523" />
+<img width="798" height="510" alt="image" src="https://github.com/user-attachments/assets/81c8c9cc-b31d-4ce5-a370-49a4efc6ad8a" />
+<img width="705" height="515" alt="image" src="https://github.com/user-attachments/assets/331677f8-d677-46ef-83fc-49d91c1be5aa" />
+<img width="705" height="401" alt="image" src="https://github.com/user-attachments/assets/ddf0c441-a6b7-4d65-a75b-2ba8a3df1cf9" />
+<img width="704" height="391" alt="image" src="https://github.com/user-attachments/assets/fdf179f9-2061-43a9-a702-6c77e56c94b2" />
+<img width="704" height="390" alt="image" src="https://github.com/user-attachments/assets/7700d3ec-cff4-45ec-8dc3-6cce5b4cb805" />
+
+
+
 
 
 ### Attack Flow Summary:
