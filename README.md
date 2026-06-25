@@ -133,10 +133,10 @@ The attack chain progressed from phishing email interaction to credential theft,
     - lsass.exe (PID: 800) interaction observed
     - explorer.exe (suspicious behavior)
 - Device / System Artifacts:
-        - WINDOWS11$ (machine account)
+    - WINDOWS11$ (machine account)
 - Network / Internal Activity: 
-        - 192.168.126.1
-        - 192.168.126.156
+    - 192.168.126.1
+    - 192.168.126.156
 
 ### MITRE ATT&CK Techniques:
 - T1003 – OS Credential Dumping
