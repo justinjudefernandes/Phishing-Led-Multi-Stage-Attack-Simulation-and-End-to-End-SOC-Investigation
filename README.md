@@ -245,6 +245,8 @@ The attack chain progressed from phishing email interaction to credential theft,
             | order by Timestamp desc
 ```
 
+<img width="703" height="347" alt="image" src="https://github.com/user-attachments/assets/553cdb69-4370-40d5-b2dc-fee50ebb0827" />
+
 - Find users who received the email with subject "Invoice is ready for viewing"
 ```KQL Query:
             EmailEvents
