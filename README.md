@@ -158,6 +158,10 @@ The attack chain progressed from phishing email interaction to credential theft,
 
 <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/e9bc6e39-d2d5-45ba-a89f-16a2e4afdb8f" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/c1ce939d-9d73-4199-a7e2-cb83daf3ab71" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/cb6a35d9-2217-41f4-a72d-ef22cb974d8a" />
 <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/1e547214-9a17-4f07-9c1c-58b469b7747c" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/49238c3c-6ffb-498d-9888-115b0b8b0812" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/6dc0a9d2-4be0-4243-abe4-74fc5f36a4b8" />
+<img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/8536d983-96cd-469f-a9cc-d14a00d5361a" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/866c07e6-995f-4caf-9fb4-1ad97bcce418" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/0ab79f01-1d2b-4d4d-9d54-16444dd403a6" />
+
+
+
 
 
 
