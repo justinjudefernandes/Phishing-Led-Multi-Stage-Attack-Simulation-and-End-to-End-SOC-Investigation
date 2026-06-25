@@ -155,7 +155,7 @@ The attack chain progressed from phishing email interaction to credential theft,
 - Microsoft Defender correlated email, identity, and endpoint signals, confirming a full phishing-led compromise lifecycle. Automated attack disruption actions were triggered, including account containment, RDP blocking, and quarantine of malicious artifacts.
 
 ### Correlation Analysis (Attack Chain):
--  email delivered to user jenny
+- Phishing Email delivered to user jenny
 - User clicked malicious URL (DocuSign-style credential harvester simulation)
 - Credentials were compromised
 - Suspicious sign-in detected from Amsterdam (impossible travel)
@@ -212,42 +212,37 @@ The attack chain progressed from phishing email interaction to credential theft,
 - Attempted lateral movement via RDP
 - Defender correlated multi-layer telemetry and triggered automated containment
 
+### Threat Hunting Queries:
+
+
 
 ### Response Actions:
-- Removed phishing email from all affected mailboxes.
-- Blocked malicious indicators:
-  - Sender email
-  - Sender IP address
-  - URL domain and path
-  - Associated attachment indicators
-- Conducted tenant-wide search across:
-  - Sender address
-  - IP address
-  - URL
-  - Attachment name and related artifacts
-- Investigated user interaction with:
-  - URL access
-  - Credential submission attempts
-  - Attachment execution or download
-- Deployed targeted user awareness notification referencing the “Salary Revision” phishing attempt.
+- Reset compromised user credentials (Jenny)
+- Revoked all active sessions and authentication tokens
+- Reviewed mailbox rules, forwarding, and delegation settings
+- Investigated sign-in logs for anomalous activity
+- Contained compromised user account via Microsoft Defender
+- Blocked RDP-based lateral movement attempts
+- Quarantined malicious files and artifacts via Defender automation
+- Conducted endpoint and identity impact assessment
+- Invalidated compromised sessions and enforced remediation
 
 ### Recommendations:
-- Enhance email security posture using:
-  - Microsoft Defender for Office 365 Safe Links
-  - Safe Attachments detonation policies
-  - Anti-phishing impersonation protections
-- Strengthen email authentication enforcement:
-  - SPF, DKIM, and DMARC alignment and strict policy enforcement.
-- Improve detection tuning for HR/payroll-themed phishing campaigns.
-- Enable continuous monitoring for anomalous authentication and credential abuse patterns.
-- Conduct periodic phishing simulation exercises to reinforce user awareness.
-- Perform gap analysis on email security controls to identify bypass conditions.
+- Enforce Multi-Factor Authentication (MFA) across all accounts
+- Implement Conditional Access policies for risky sign-ins and geolocation anomalies
+- Strengthen phishing awareness training for end users
+- Monitor and alert on impossible travel scenarios
+- Maintain automated EDR containment and response configurations
+- Conduct continuous threat hunting for credential dumping behavior
+- Review and harden email security controls (Safe Links, Anti-Phishing, Safe Attachments)
 
 ### Lessons Learned:
-- Email-based threats can bypass initial filters when using trusted-looking HR or payroll lures.
-- OSINT validation (VirusTotal, AbuseIPDB) is critical for confirming malicious indicators quickly.
-- Message header analysis provides key visibility into email authenticity and routing.
-- Early user interaction prevention is essential to limit credential theft and payload execution.
-- Regular tuning of Safe Links and Safe Attachments policies improves detection coverage.
-- Tenant-wide hunting helps assess blast radius and identify additional impacted users.
+- Phishing remains the primary and most effective initial access vector
+- Credential theft enables rapid cross-border attacker access
+- Endpoint telemetry is critical for detecting post-compromise behavior
+- LSASS interaction and PowerShell execution are key detection signals
+- Hands-on-keyboard attacks evolve quickly and require rapid containment
+- Correlation across email, identity, and endpoint layers is essential for full visibility
+- Automated response significantly reduces attacker dwell time and impact
+- Lateral movement attempts often follow successful credential compromise
 
