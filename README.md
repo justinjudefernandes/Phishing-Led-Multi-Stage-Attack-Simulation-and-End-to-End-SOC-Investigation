@@ -156,7 +156,7 @@ The attack chain progressed from phishing email interaction to credential theft,
 
 📌 Refer to the below screenshots:(follow the sequence from left to right)
 
-<img width="330" height="300" alt="image" src="https://github.com/user-attachments/assets/e9bc6e39-d2d5-45ba-a89f-16a2e4afdb8f" /> <img width="330" height="300" alt="image" src="https://github.com/user-attachments/assets/c1ce939d-9d73-4199-a7e2-cb83daf3ab71" /> <img width="330" height="300" alt="image" src="https://github.com/user-attachments/assets/cb6a35d9-2217-41f4-a72d-ef22cb974d8a" />
+<img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/e9bc6e39-d2d5-45ba-a89f-16a2e4afdb8f" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/c1ce939d-9d73-4199-a7e2-cb83daf3ab71" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/cb6a35d9-2217-41f4-a72d-ef22cb974d8a" />
 
 
 
