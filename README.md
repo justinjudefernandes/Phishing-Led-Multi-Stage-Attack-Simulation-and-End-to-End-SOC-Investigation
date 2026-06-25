@@ -155,7 +155,9 @@ The attack chain progressed from phishing email interaction to credential theft,
 - Microsoft Defender correlated email, identity, and endpoint signals, confirming a full phishing-led compromise lifecycle. Automated attack disruption actions were triggered, including account containment, RDP blocking, and quarantine of malicious artifacts.
 
 📌 Refer to the below screenshots:
-<img width="659" height="328" alt="image" src="https://github.com/user-attachments/assets/e9bc6e39-d2d5-45ba-a89f-16a2e4afdb8f" />
+
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/e9bc6e39-d2d5-45ba-a89f-16a2e4afdb8f" /> <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/c1ce939d-9d73-4199-a7e2-cb83daf3ab71" />
+
 
 
 
