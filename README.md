@@ -214,8 +214,8 @@ The attack chain progressed from phishing email interaction to credential theft,
 
 ### Threat Hunting KQL Queries:
 - Looked for other users received the email with URL “docusign[.]com”.
-
-```EmailUrlInfo
+```KQL Query:
+            EmailUrlInfo
             | where Url contains "docusign[.]com"
             | project Timestamp, NetworkMessageId, Url
             | join kind=inner (
@@ -223,7 +223,7 @@ The attack chain progressed from phishing email interaction to credential theft,
                 | project NetworkMessageId, RecipientEmailAddress, Subject
             ) on NetworkMessageId
             | order by Timestamp desc
-
+```
 •	Find users who received the email with subject "Invoice is ready for viewing"
 EmailEvents
 | where Subject contains "Invoice is ready for viewing"
