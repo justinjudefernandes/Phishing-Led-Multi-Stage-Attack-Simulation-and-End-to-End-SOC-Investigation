@@ -154,9 +154,9 @@ The attack chain progressed from phishing email interaction to credential theft,
 - Endpoint telemetry confirmed execution of credential dumping tools (Mimikatz), PowerShell activity, and interaction with the LSASS process. These behaviors are strongly associated with post-exploitation credential theft and lateral movement preparation.
 - Microsoft Defender correlated email, identity, and endpoint signals, confirming a full phishing-led compromise lifecycle. Automated attack disruption actions were triggered, including account containment, RDP blocking, and quarantine of malicious artifacts.
 
-📌 Refer to the below screenshots:
+📌 Refer to the below screenshots:(follow the sequence from left to right)
 
-<img width="330" height="200" alt="image" src="https://github.com/user-attachments/assets/e9bc6e39-d2d5-45ba-a89f-16a2e4afdb8f" /> <img width="330" height="200" alt="image" src="https://github.com/user-attachments/assets/c1ce939d-9d73-4199-a7e2-cb83daf3ab71" /> <img width="330" height="200" alt="image" src="https://github.com/user-attachments/assets/cb6a35d9-2217-41f4-a72d-ef22cb974d8a" />
+<img width="330" height="300" alt="image" src="https://github.com/user-attachments/assets/e9bc6e39-d2d5-45ba-a89f-16a2e4afdb8f" /> <img width="330" height="300" alt="image" src="https://github.com/user-attachments/assets/c1ce939d-9d73-4199-a7e2-cb83daf3ab71" /> <img width="330" height="300" alt="image" src="https://github.com/user-attachments/assets/cb6a35d9-2217-41f4-a72d-ef22cb974d8a" />
 
 
 
