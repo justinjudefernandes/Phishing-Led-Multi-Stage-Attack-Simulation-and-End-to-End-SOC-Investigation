@@ -65,7 +65,7 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 ### STEP 2: Hijacking Identity (Identity Protection & Impossible Travel Simulation)
 - Logged into a Windows Server 2022 VM using VPN to simulate access from the Netherlands.
 - Successfully signed into Jenny’s mailbox without MFA enforcement (Security Defaults disabled in prior setup).
-- Performed additional sign-in attempts from a local machine to simulate impossible travel behavior.
+- Performed additional sign-in attempts into Jenny's mailbox from a local machine to simulate impossible travel behavior.
 - Successfully authenticated into Jenny’s mailbox from multiple geographic locations.
 - Established remote access to the Windows 11 VM using RDP with Jenny’s compromised credentials.
 - Modified the hosts file to map the Windows 11 system hostname.
@@ -77,7 +77,9 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 
 <img width="703" height="380" alt="image" src="https://github.com/user-attachments/assets/2dd8257a-e69d-4ea8-87bd-81f587949861" />
 <img width="635" height="373" alt="image" src="https://github.com/user-attachments/assets/c271fea5-ac51-4302-9ca7-67cdff2e8557" />
-<img width="750" height="401" alt="image" src="https://github.com/user-attachments/assets/25930f2f-8f7a-4434-b031-8df7c79d6275" />
+<img width="806" height="430" alt="image" src="https://github.com/user-attachments/assets/73b9e693-b9d0-4567-a864-d688c52af4ab" />
+<img width="797" height="443" alt="image" src="https://github.com/user-attachments/assets/9222f877-5df4-4df7-aa41-9bdd988c6295" />
+
 
 
 
