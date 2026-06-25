@@ -109,76 +109,55 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 - Identity Protection: Credentials used for login → risky sign-ins → impossible travel detection simulated
 - Endpoint Security: RDP access gained → PowerShell execution → credential dumping simulation → lateral movement behavior
 
-
-
-### Email Investigation and Threat Analysis:
-- Initiated an investigation using Microsoft Defender for a suspicious email alert.
-
-#### Email Analysis Workflow:
-- Navigated to: Email & collaboration → Explorer
-- Extracted and analyzed the email message header for forensic inspection.
-- Parsed key header fields using Notepad++ for structured review, including:
-  - Received chain (mail routing path)
-  - Authentication-Results (SPF/DKIM/DMARC validation)
-  - From address
-  - Message-ID
-  - Return-Path
-  - X-Forefront-Antispam-Report
-
-📌 Below are the screenshots captured during the Email Workflow Analysis:
-<img width="749" height="317" alt="image" src="https://github.com/user-attachments/assets/fdaca9c9-835b-4cb7-80cf-f1c9a2e992fa" />
-<img width="748" height="418" alt="image" src="https://github.com/user-attachments/assets/62abcffd-af78-4f77-b29b-178c9fb39453" />
-<img width="751" height="431" alt="image" src="https://github.com/user-attachments/assets/7a65c3e8-4909-4499-ab90-13199f030b59" />
-
-#### Threat Intelligence Correlation (OSINT):
-- Investigated embedded URL using VirusTotal.
-  - URL was flagged as malicious by 5 security vendors.
-- Performed OSINT analysis on source IP address: 79.135.106.97
-  - IP had prior malicious reports. (last seen ~5 months ago)
-  - Associated with suspicious activity patterns consistent with phishing infrastructure.
-
-📌 Below are the screenshots of the OSINT performed:
-<img width="750" height="412" alt="image" src="https://github.com/user-attachments/assets/51c431c0-4be2-449b-8081-a90c1a128be9" />
-<img width="749" height="457" alt="image" src="https://github.com/user-attachments/assets/950fa6c8-9d41-494a-b4c6-fe89911c637a" />
-
-### Incident Response Action:
-- Based on corroborated OSINT findings and Defender telemetry:
-  - Confirmed email contained malicious URL and suspicious origin infrastructure.
-  - Executed remediation by deleting the email from user mailboxes.
-  - Prevented further user interaction with the phishing content.
-
- 📌 Screenshot as below:
- 
-<img width="749" height="412" alt="image" src="https://github.com/user-attachments/assets/bad41887-5f9b-412a-a7af-0dd5a54e033f" />
-
-
-## SOC Phishing Investigation Report:
+## SOC Investigation Report: Phishing-Led Multi-Stage Attack (Email → Identity → Endpoint)
 
 ### Incident Overview:
-- Timestamp: June 18, 2026 – 21:04 (UTC +04:00)
-- Recipient: bob@corp88[.]onmicrosoft[.]com
-- Subject: Salary Revision
-- Sender Email: strangeaccount88@proton[.]me
-- Sender IP Address: 79.135.106.97
-- Attachment: Salary Revision[.]docx
-- Embedded URL: hxxps[://]shareholds[.]com/nam/…
+- Alert Name: Potential human-operated malicious activity (Hands-on-keyboard attack)
+- Incident Name: Account compromise with post-exploitation endpoint activity
+- First Activity: 22-Jun-2026 – 10:52 PM (UTC +04:00)
+- Last Activity: 22-Jun-2026 – 11:44 PM (UTC +04:00)
+- Affected Endpoint: Windows11
+- User: jenny
+- Severity: High
+- Detection Source: Microsoft Defender for Endpoint
 
-A phishing email impersonating an HR-related salary update was delivered to the target mailbox. The message contained both a malicious document attachment and a credential-harvesting URL designed to prompt user interaction.
+Microsoft Defender for Endpoint detected a high-severity, human-operated attack following a phishing-led credential compromise. The incident spanned multiple security layers including email compromise, identity misuse, and endpoint-level execution activity.
+
+The attack chain progressed from phishing email interaction to credential theft, followed by suspicious sign-ins (including impossible travel indicators), and culminated in endpoint-based hands-on-keyboard activity involving credential dumping and lateral movement attempts.
 
 ### Indicators of Compromise (IOCs):
-- Malicious URL: Flagged by VirusTotal as malicious across multiple security vendors.
-- Sender IP (79.135.106.97): Reported as malicious on AbuseIPDB.
-- Phishing Infrastructure: External ProtonMail sender used to deliver payload.
+- Endpoint Artifacts:
+        - mimikatz.exe (PID: 13544)
+        - mimidrv.sys
+        - powershell.exe (PID: 5356)
+        - lsass.exe (PID: 800) interaction observed
+        - explorer.exe (suspicious behavior)
+- Device / System Artifacts:
+        - WINDOWS11$ (machine account)
+- Network / Internal Activity: 
+        - 192.168.126.1
+        - 192.168.126.156
+
+### MITRE ATT&CK Techniques
+- T1003 – OS Credential Dumping
+- T1555 – Credentials from Password Stores
+- T1021.001 – Remote Desktop Protocol
+- T1105 – Ingress Tool Transfer
+- T1219 – Remote Access Tools
+- T1059.001 – PowerShell (Execution observed during endpoint activity)
 
 ### Investigation Summary:
-- At 21:04 UTC+04:00 on June 18, 2026, a phishing email titled “Salary Revision” was delivered to the organization’s mailbox. The email leveraged a social engineering lure related to payroll updates and contained:
-  - A Microsoft Word attachment (Salary Revision[.]docx).
-  - A malicious URL intended to redirect the user to an external resource.
-- OSINT validation confirmed multiple malicious indicators associated with both the URL and the sender infrastructure. VirusTotal detections classified the URL as malicious, while AbuseIPDB reports confirmed prior malicious activity associated with the source IP address.
-- Further investigation is required to determine:
-  - Whether additional users were targeted.
-  - Whether the URL or attachment was accessed.
-  - Whether credential theft, malware execution, or unauthorized access occurred.
+Microsoft Defender for Endpoint generated a high-severity alert indicating potential human-operated malicious activity on the Windows11 endpoint associated with user jenny.
+
+The investigation revealed that the attack originated from a phishing email containing a malicious URL. The user interacted with the email, resulting in credential compromise.
+
+Shortly after, a successful sign-in was observed from Amsterdam, indicating unauthorized access and triggering an impossible travel alert under Microsoft Entra ID Identity Protection.
+
+The attacker then leveraged the compromised credentials to gain access to the environment and perform hands-on-keyboard activity on the Windows11 endpoint.
+
+Endpoint telemetry confirmed execution of credential dumping tools (Mimikatz), PowerShell activity, and interaction with the LSASS process. These behaviors are strongly associated with post-exploitation credential theft and lateral movement preparation.
+
+Microsoft Defender correlated email, identity, and endpoint signals, confirming a full phishing-led compromise lifecycle. Automated attack disruption actions were triggered, including account containment, RDP blocking, and quarantine of malicious artifacts.
 
 ### Triage (5W1H Analysis):
 - Who:
