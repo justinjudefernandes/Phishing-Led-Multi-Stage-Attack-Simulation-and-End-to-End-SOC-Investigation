@@ -12,70 +12,86 @@ This project simulates a full attack chain beginning with a phishing email and p
 The attack was executed in three stages:
 - Phishing email delivery and malicious URL interaction
 - Credential compromise and impossible travel sign-in simulation
-- Endpoint compromise and lateral movement via RDP and malicious execution
+- Endpoint compromise through malicious execution activity on a Windows system
 
 The investigation included validating alerts in Microsoft Defender XDR, analyzing sign-in anomalies, and executing endpoint-based attack simulations to replicate attacker behavior.
 
 ### Tools Used:
-- Microsoft Defender for Office 365
-- Microsoft Defender XDR
-- Microsoft 365 Explorer
-- Safe Links
-- Safe Attachments
-- Notepad++
-- VirusTotal
-- AbuseIPDB
-- Proton Mail
+- Microsoft Defender for Office 365 (Safe Links, Email Protection)
+- Microsoft Entra ID (Identity Protection / Sign-in Logs)
+- Microsoft Defender for Endpoint (EDR)
+- Microsoft Defender XDR Portal
+- Windows 11 Virtual Machine
+- Windows Server 2022 Virtual Machine
+- PowerShell
+- VPN (for geo-location simulation)
+- MITRE ATT&CK Framework
 
 ### Skill Developed:
-- Email security administration
-- Phishing investigation
-- Email header analysis
-- IOC identification and analysis
-- Threat intelligence validation
-- Incident response
-- Microsoft Defender for Office 365
+- Phishing attack simulation and analysis
+- Email security and Safe Links behavior understanding
+- Identity compromise investigation
+- Impossible travel / risky sign-in analysis
+- Endpoint detection and response (EDR) analysis
+- PowerShell-based attack execution analysis
+- Credential harvesting simulation
+- MITRE ATT&CK mapping
+- SOC alert triage and investigation
 
 ### Key Deliverables:
-- Safe Links policy configuration
-- Safe Attachments policy configuration
-- Email security policy testing
-- Email header analysis
-- IOC enrichment using OSINT
-- Phishing investigation report
-- Incident response documentation
-- Security recommendations and remediation actions
+- End-to-end phishing attack simulation (Email → Identity → Endpoint)
+- Identity compromise and impossible travel scenario validation
+- Endpoint compromise using PowerShell and credential dumping simulation
+- Microsoft Defender XDR incident investigation
+- Attack chain correlation across multiple security layers
+- Detection validation and alert analysis report
 
 ## Steps Performed:
-### Safe Links Policy Configuration:
-- Configured a Safe Links policy in Microsoft Defender to protect users from malicious URLs and attachments delivered via email.
-  - Navigated to: Microsoft Defender → Email & collaboration → Policies & rules → Threat policies → Safe Links
-  - Created and deployed a policy named: 'MyDFIR-Justin-SafeLinksforInvestigation'.
-  - Enabled URL rewriting and real-time link scanning to ensure time-of-click protection against phishing and malicious redirects.
+
+### STEP 1: Phishing Email (Email Security Simulation)
+- A phishing email was sent to user Jenny’s mailbox from a random external sender.
+- Microsoft Defender Safe Links rewrote the embedded malicious URL for protection tracking.
+- The user clicked the rewritten link, which redirected to a DocuSign-like credential harvesting page.
+- Jenny entered her username and password, simulating credential theft.
+- This stage represented initial access via phishing and social engineering.
 
 📌 Refer to the below screenshots for policy configuration and summary details.
-<img width="752" height="420" alt="image" src="https://github.com/user-attachments/assets/a6d4dfb9-f579-4f8e-b4b9-35d9a3a73eb5" />
-<img width="752" height="411" alt="image" src="https://github.com/user-attachments/assets/3e73cd77-0e17-4e44-8fbd-413ce6f4480a" />
 
-### Safe Attachments Policy Configuration:
-- Implemented a Safe Attachments policy to provide detonation-based malware protection for email attachments.
-  - Navigated to: Microsoft Defender → Email & collaboration → Policies & rules → Threat policies → Safe Attachments
-  - Created a policy named: 'MyDFIR-Justin-SafeAttachments&Links'.
-  - Configured attachment scanning to detect and block potentially malicious payloads before delivery.
+
+
+
+### STEP 2: Hijacking Identity (Identity Protection & Impossible Travel Simulation)
+- Logged into a Windows Server 2022 VM using VPN to simulate access from the Netherlands.
+- Successfully signed into Jenny’s mailbox without MFA enforcement (Security Defaults disabled in prior setup).
+- Performed additional sign-in attempts from a local machine to simulate impossible travel behavior.
+- Successfully authenticated into Jenny’s mailbox from multiple geographic locations.
+- Established remote access to the Windows 11 VM using RDP with Jenny’s compromised credentials.
+- Modified the hosts file to map the Windows 11 system hostname.
+- Used advanced RDP settings:
+    - “Use a web account to sign in to the remote computer”
+- Connected using hostname-based RDP access to simulate attacker persistence and access.
 
 📌 Refer to the below screenshots for policy summary and configuration settings.
-<img width="751" height="410" alt="image" src="https://github.com/user-attachments/assets/eccb3733-9b03-4668-8e1c-086e94839590" />
-<img width="753" height="413" alt="image" src="https://github.com/user-attachments/assets/feac727d-50dd-45a5-b7f3-df9be83aaac6" />
 
-### Policy Validation and Testing:
-- Performed controlled testing to validate enforcement of Safe Links and Safe Attachments policies.
-  - Sent a test phishing-style email from a newly created external ProtonMail account: 'strangeaccount88@proton[.]me'
-  - Verified policy behavior through message inspection in Defender.
-  - Confirmed that Safe Links and Safe Attachments protections were actively applied to the message content.
+
+### STEP 3: Compromising Endpoints (Endpoint Threat Simulation)
+- On the Windows 11 endpoint (Jenny’s machine), PowerShell was used to simulate attacker activity.
+- Executed a script to deploy and run Mimikatz, simulating credential dumping behavior.
+- Verified execution by locating artifacts in the %TEMP% directory.
+- Ran Mimikatz to simulate extraction of credentials from LSASS memory.
+- Executed Atomic Red Team technique T1059.001 (PowerShell execution simulation).
+- Microsoft Defender for Endpoint generated alerts under Incidents & Alerts.
+- Verified detection and correlation in the Microsoft Defender XDR portal.
 
 📌The below screenshots demonstrate policy enforcement and inspection results within Microsoft Defender.
-<img width="749" height="286" alt="image" src="https://github.com/user-attachments/assets/b1a55330-82df-4099-8c4c-7062c319b7eb" />
-<img width="749" height="374" alt="image" src="https://github.com/user-attachments/assets/eb301f83-3db1-412c-ab57-d997452d69a1" />
+
+
+### Attack Flow Summary:
+- Email Security: Phishing email delivered → malicious URL clicked → credential capture simulated
+- Identity Protection: Credentials used for login → risky sign-ins → impossible travel detection simulated
+- Endpoint Security: RDP access gained → PowerShell execution → credential dumping simulation → lateral movement behavior
+
+
 
 ### Email Investigation and Threat Analysis:
 - Initiated an investigation using Microsoft Defender for a suspicious email alert.
