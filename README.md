@@ -1,4 +1,5 @@
 # Phishing-Led Multi-Stage Attack Simulation and End-to-End SOC Investigation
+(Email Security → Identity Protection → Endpoint Security)
 
 ## Objective:
 The Email Security & Phishing Analysis in Microsoft Defender project focused on configuring email security controls within Microsoft Defender for Office 365, validating their effectiveness against phishing threats, and performing an end-to-end phishing investigation. Through this project, I strengthened my skills in email security, threat analysis, OSINT, incident response, and Microsoft Defender technologies by simulating a real-world phishing attack scenario.
