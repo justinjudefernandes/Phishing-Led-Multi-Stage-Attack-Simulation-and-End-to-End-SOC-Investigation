@@ -161,32 +161,19 @@ The attack chain progressed from phishing email interaction to credential theft,
 <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/8536d983-96cd-469f-a9cc-d14a00d5361a" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/866c07e6-995f-4caf-9fb4-1ad97bcce418" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/0ab79f01-1d2b-4d4d-9d54-16444dd403a6" />
 <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/2e02d13f-7a92-4aa7-92d3-efabe730b696" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/d65ab40a-45eb-4ae9-b3dd-fa8738a6d725" /> <img width="330" height="230" alt="image" src="https://github.com/user-attachments/assets/dcfefee4-b5dc-4eb0-b79e-c6be251a7e6b" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Correlation Analysis (Attack Chain):
-- Phishing Email delivered to user jenny
-- User clicked malicious URL (DocuSign-style credential harvester simulation)
-- Credentials were compromised
-- Suspicious sign-in detected from Amsterdam (impossible travel)
-- Unauthorized mailbox access observed
-- Attacker gained access to Windows11 endpoint via RDP
-- Hands-on-keyboard activity initiated
-- Mimikatz executed for credential dumping
-- PowerShell used for execution and post-compromise actions
-- LSASS memory interaction observed
-- Lateral movement attempts via RDP identified and blocked
-- Defender triggered automated containment and quarantines
+- Phishing Email delivered to user jenny.
+- User clicked malicious URL (DocuSign-style credential harvester simulation).
+- Credentials were compromised.
+- Suspicious sign-in detected from Amsterdam (impossible travel).
+- Unauthorized mailbox access observed.
+- Attacker gained access to Windows11 endpoint via RDP.
+- Hands-on-keyboard activity initiated.
+- Mimikatz executed for credential dumping.
+- PowerShell used for execution and post-compromise actions.
+- LSASS memory interaction observed.
+- Lateral movement attempts via RDP identified and blocked.
+- Defender triggered automated containment and quarantines.
 
 ### Timeline of Events: 
 - 10:07 PM – Phishing email delivered to user mailbox
@@ -308,32 +295,32 @@ The attack chain progressed from phishing email interaction to credential theft,
 <img width="703" height="344" alt="image" src="https://github.com/user-attachments/assets/0198b816-c9fa-40ef-aa2b-f1643484591d" />
 
 ### Response Actions:
-- Reset compromised user credentials (Jenny)
-- Revoked all active sessions and authentication tokens
-- Reviewed mailbox rules, forwarding, and delegation settings
-- Investigated sign-in logs for anomalous activity
-- Contained compromised user account via Microsoft Defender
-- Blocked RDP-based lateral movement attempts
-- Quarantined malicious files and artifacts via Defender automation
-- Conducted endpoint and identity impact assessment
-- Invalidated compromised sessions and enforced remediation
+- Reset compromised user credentials (Jenny).
+- Revoked all active sessions and authentication tokens.
+- Reviewed mailbox rules, forwarding, and delegation settings.
+- Investigated sign-in logs for anomalous activity.
+- Contained compromised user account via Microsoft Defender.
+- Blocked RDP-based lateral movement attempts.
+- Quarantined malicious files and artifacts via Defender automation.
+- Conducted endpoint and identity impact assessment.
+- Invalidated compromised sessions and enforced remediation.
 
 ### Recommendations:
-- Enforce Multi-Factor Authentication (MFA) across all accounts
-- Implement Conditional Access policies for risky sign-ins and geolocation anomalies
-- Strengthen phishing awareness training for end users
-- Monitor and alert on impossible travel scenarios
-- Maintain automated EDR containment and response configurations
-- Conduct continuous threat hunting for credential dumping behavior
-- Review and harden email security controls (Safe Links, Anti-Phishing, Safe Attachments)
+- Enforce Multi-Factor Authentication (MFA) across all accounts.
+- Implement Conditional Access policies for risky sign-ins and geolocation anomalies.
+- Strengthen phishing awareness training for end users.
+- Monitor and alert on impossible travel scenarios.
+- Maintain automated EDR containment and response configurations.
+- Conduct continuous threat hunting for credential dumping behavior.
+- Review and harden email security controls (Safe Links, Anti-Phishing, Safe Attachments).
 
 ### Lessons Learned:
-- Phishing remains the primary and most effective initial access vector
-- Credential theft enables rapid cross-border attacker access
-- Endpoint telemetry is critical for detecting post-compromise behavior
-- LSASS interaction and PowerShell execution are key detection signals
-- Hands-on-keyboard attacks evolve quickly and require rapid containment
-- Correlation across email, identity, and endpoint layers is essential for full visibility
-- Automated response significantly reduces attacker dwell time and impact
-- Lateral movement attempts often follow successful credential compromise
+- Phishing remains the primary and most effective initial access vector.
+- Credential theft enables rapid cross-border attacker access.
+- Endpoint telemetry is critical for detecting post-compromise behavior.
+- LSASS interaction and PowerShell execution are key detection signals.
+- Hands-on-keyboard attacks evolve quickly and require rapid containment.
+- Correlation across email, identity, and endpoint layers is essential for full visibility.
+- Automated response significantly reduces attacker dwell time and impact.
+- Lateral movement attempts often follow successful credential compromise.
 
