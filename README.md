@@ -178,7 +178,7 @@ The attack chain progressed from phishing email interaction to credential theft,
 - 11:44 PM – Last observed malicious activity
 - Post 11:44 PM – Multiple quarantine actions executed
 
-### 5W1H Analysis
+### Triage (5W1H Analysis):
 
 #### Who:
 - User: jenny
