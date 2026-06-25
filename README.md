@@ -255,6 +255,8 @@ The attack chain progressed from phishing email interaction to credential theft,
             | order by Timestamp desc
 ```
 
+<img width="704" height="350" alt="image" src="https://github.com/user-attachments/assets/a4343543-3274-4f94-bbdf-f830f37652c8" />
+
 - Looked for suspicious sign-ins from foreign countries:
 ```KQL Query:
             SigninLogs
@@ -262,6 +264,8 @@ The attack chain progressed from phishing email interaction to credential theft,
             | project TimeGenerated, Identity, Location, AppDisplayName
             | order by TimeGenerated desc
 ```
+
+<img width="704" height="350" alt="image" src="https://github.com/user-attachments/assets/90ce734f-6fa5-4cd3-8913-171f16973ff0" />
 
 - Checked for lateral movement attempts using RDP:
 ```KQL Query:
@@ -271,6 +275,8 @@ The attack chain progressed from phishing email interaction to credential theft,
             | order by Timestamp desc
 ```
 
+<img width="703" height="350" alt="image" src="https://github.com/user-attachments/assets/b3bbac61-b5d7-47c9-976e-fcd0fef8f8e8" />
+
 - Searched for suspicious remote logons:
 ```KQL Query:
             DeviceLogonEvents
@@ -278,6 +284,8 @@ The attack chain progressed from phishing email interaction to credential theft,
             | project Timestamp, DeviceName, AccountName, RemoteIP
             | order by Timestamp desc
 ```
+
+<img width="704" height="349" alt="image" src="https://github.com/user-attachments/assets/69f2dbb7-148c-4549-bcc1-0a2faac78166" />
 
 - Checked for PowerShell activity after the compromise:
 ```KQL Query:
@@ -287,6 +295,8 @@ The attack chain progressed from phishing email interaction to credential theft,
             | order by Timestamp desc
 ```
 
+<img width="704" height="349" alt="image" src="https://github.com/user-attachments/assets/a1d7d054-4b17-4a18-b036-c4e46a1fdd72" />
+
 - Searched for additional users triggering similar alerts:
 ```KQL Query:
             AlertInfo
@@ -294,6 +304,8 @@ The attack chain progressed from phishing email interaction to credential theft,
             | project Timestamp, Title, Severity, ServiceSource
             | order by Timestamp desc
 ```
+
+<img width="703" height="344" alt="image" src="https://github.com/user-attachments/assets/0198b816-c9fa-40ef-aa2b-f1643484591d" />
 
 ### Response Actions:
 - Reset compromised user credentials (Jenny)
