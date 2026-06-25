@@ -1,12 +1,12 @@
 # Microsoft Defender XDR: Phishing-Led Multi-Stage Attack Simulation & End-to-End SOC Investigation
 ###### (Email Security → Identity Protection → Endpoint Security)
 
-## Objective:
+## 🎯 Objective:
 The objective of this project was to simulate a complete real-world attack lifecycle and gain hands-on experience in detecting, analyzing, and responding to a phishing-led compromise across multiple security layers.
 
 This exercise focused on understanding how an attack progresses from email delivery to identity compromise and finally endpoint exploitation, while validating detection capabilities within Microsoft Defender for Office 365 and Microsoft Defender for Endpoint.
 
-## Project Overview:
+## 📊 Project Overview:
 This project simulates a full attack chain beginning with a phishing email and progressing through identity compromise and endpoint intrusion. The scenario demonstrates how modern attacks bypass multiple security layers using social engineering, credential theft, and post-compromise execution techniques.
 
 The attack was executed in three stages:
@@ -16,7 +16,7 @@ The attack was executed in three stages:
 
 The investigation included validating alerts in Microsoft Defender XDR, analyzing sign-in anomalies, and executing endpoint-based attack simulations to replicate attacker behavior.
 
-### Tools Used:
+### 🧰 Tools Used:
 - Microsoft Defender for Office 365 (Safe Links, Email Protection)
 - Microsoft Entra ID (Identity Protection / Sign-in Logs)
 - Microsoft Defender for Endpoint (EDR)
@@ -27,7 +27,7 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 - VPN (for geo-location simulation)
 - MITRE ATT&CK Framework
 
-### Skill Developed:
+### 🛡️ Skill Developed:
 - Phishing attack simulation and analysis
 - Email security and Safe Links behavior understanding
 - Identity compromise investigation
@@ -39,7 +39,7 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 - MITRE ATT&CK mapping
 - SOC alert triage and investigation
 
-### Key Deliverables:
+### 📁 Key Deliverables:
 - End-to-end phishing attack simulation (Email → Identity → Endpoint)
 - Identity compromise and impossible travel scenario validation
 - Endpoint compromise using PowerShell and credential dumping simulation
@@ -48,7 +48,7 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 - Attack chain correlation across multiple security layers
 - Detection validation and alert analysis report
 
-## Steps Performed:
+## 🔍 Steps Performed:
 
 ### STEP 1: Phishing Email (Email Security Simulation)
 - A phishing email was sent to user Jenny’s mailbox from a random external sender.
@@ -109,7 +109,7 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 - Captured credentials used for login → risky sign-ins → impossible travel detection simulated
 - RDP access gained → PowerShell execution → credential dumping simulation → lateral movement behavior
 
-## SOC Investigation Report: Phishing-Led Multi-Stage Attack (Email → Identity → Endpoint)
+## 🚨 SOC Investigation Report: Phishing-Led Multi-Stage Attack (Email → Identity → Endpoint)
 
 ### Incident Overview:
 - Alert Name: Potential human-operated malicious activity (Hands-on-keyboard attack)
@@ -294,7 +294,7 @@ The attack chain progressed from phishing email interaction to credential theft,
 
 <img width="703" height="344" alt="image" src="https://github.com/user-attachments/assets/0198b816-c9fa-40ef-aa2b-f1643484591d" />
 
-### Response Actions:
+### 🛑 Response Actions:
 - Reset compromised user credentials (Jenny).
 - Revoked all active sessions and authentication tokens.
 - Reviewed mailbox rules, forwarding, and delegation settings.
@@ -305,7 +305,7 @@ The attack chain progressed from phishing email interaction to credential theft,
 - Conducted endpoint and identity impact assessment.
 - Invalidated compromised sessions and enforced remediation.
 
-### Recommendations:
+### 💡 Recommendations:
 - Enforce Multi-Factor Authentication (MFA) across all accounts.
 - Implement Conditional Access policies for risky sign-ins and geolocation anomalies.
 - Strengthen phishing awareness training for end users.
@@ -314,7 +314,7 @@ The attack chain progressed from phishing email interaction to credential theft,
 - Conduct continuous threat hunting for credential dumping behavior.
 - Review and harden email security controls (Safe Links, Anti-Phishing, Safe Attachments).
 
-### Lessons Learned:
+### 🧠 Lessons Learned:
 - Phishing remains the primary and most effective initial access vector.
 - Credential theft enables rapid cross-border attacker access.
 - Endpoint telemetry is critical for detecting post-compromise behavior.
