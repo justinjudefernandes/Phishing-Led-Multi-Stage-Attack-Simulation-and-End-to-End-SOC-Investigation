@@ -105,9 +105,9 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 <img width="704" height="390" alt="image" src="https://github.com/user-attachments/assets/7700d3ec-cff4-45ec-8dc3-6cce5b4cb805" />
 
 ### Attack Flow Summary:
-- Email Security: Phishing email delivered → malicious URL clicked → credential capture simulated
-- Identity Protection: Credentials used for login → risky sign-ins → impossible travel detection simulated
-- Endpoint Security: RDP access gained → PowerShell execution → credential dumping simulation → lateral movement behavior
+- Phishing email delivered → malicious URL clicked → credential capture simulated
+- Captured credentials used for login → risky sign-ins → impossible travel detection simulated
+- RDP access gained → PowerShell execution → credential dumping simulation → lateral movement behavior
 
 ## SOC Investigation Report: Phishing-Led Multi-Stage Attack (Email → Identity → Endpoint)
 
