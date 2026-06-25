@@ -12,7 +12,7 @@ This project simulates a full attack chain beginning with a phishing email and p
 The attack was executed in three stages:
 - Phishing email delivery and malicious URL interaction
 - Credential compromise and impossible travel sign-in simulation
-- Endpoint compromise through malicious execution activity on a Windows system
+- Endpoint compromise and lateral movement via RDP and malicious execution
 
 The investigation included validating alerts in Microsoft Defender XDR, analyzing sign-in anomalies, and executing endpoint-based attack simulations to replicate attacker behavior.
 
@@ -33,6 +33,7 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 - Identity compromise investigation
 - Impossible travel / risky sign-in analysis
 - Endpoint detection and response (EDR) analysis
+- Lateral movement simulation via RDP
 - PowerShell-based attack execution analysis
 - Credential harvesting simulation
 - MITRE ATT&CK mapping
@@ -42,6 +43,7 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 - End-to-end phishing attack simulation (Email → Identity → Endpoint)
 - Identity compromise and impossible travel scenario validation
 - Endpoint compromise using PowerShell and credential dumping simulation
+- Lateral movement simulation using RDP
 - Microsoft Defender XDR incident investigation
 - Attack chain correlation across multiple security layers
 - Detection validation and alert analysis report
