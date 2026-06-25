@@ -138,7 +138,7 @@ The attack chain progressed from phishing email interaction to credential theft,
         - 192.168.126.1
         - 192.168.126.156
 
-### MITRE ATT&CK Techniques
+### MITRE ATT&CK Techniques:
 - T1003 – OS Credential Dumping
 - T1555 – Credentials from Password Stores
 - T1021.001 – Remote Desktop Protocol
@@ -147,35 +147,71 @@ The attack chain progressed from phishing email interaction to credential theft,
 - T1059.001 – PowerShell (Execution observed during endpoint activity)
 
 ### Investigation Summary:
-Microsoft Defender for Endpoint generated a high-severity alert indicating potential human-operated malicious activity on the Windows11 endpoint associated with user jenny.
+- Microsoft Defender for Endpoint generated a high-severity alert indicating potential human-operated malicious activity on the Windows11 endpoint associated with user jenny.
+- The investigation revealed that the attack originated from a phishing email containing a malicious URL. The user interacted with the email, resulting in credential compromise.
+- Shortly after, a successful sign-in was observed from Amsterdam, indicating unauthorized access and triggering an impossible travel alert under Microsoft Entra ID Identity Protection.
+- The attacker then leveraged the compromised credentials to gain access to the environment and perform hands-on-keyboard activity on the Windows11 endpoint.
+- Endpoint telemetry confirmed execution of credential dumping tools (Mimikatz), PowerShell activity, and interaction with the LSASS process. These behaviors are strongly associated with post-exploitation credential theft and lateral movement preparation.
+- Microsoft Defender correlated email, identity, and endpoint signals, confirming a full phishing-led compromise lifecycle. Automated attack disruption actions were triggered, including account containment, RDP blocking, and quarantine of malicious artifacts.
 
-The investigation revealed that the attack originated from a phishing email containing a malicious URL. The user interacted with the email, resulting in credential compromise.
+### Correlation Analysis (Attack Chain):
+-  email delivered to user jenny
+- User clicked malicious URL (DocuSign-style credential harvester simulation)
+- Credentials were compromised
+- Suspicious sign-in detected from Amsterdam (impossible travel)
+- Unauthorized mailbox access observed
+- Attacker gained access to Windows11 endpoint via RDP
+- Hands-on-keyboard activity initiated
+- Mimikatz executed for credential dumping
+- PowerShell used for execution and post-compromise actions
+- LSASS memory interaction observed
+- Lateral movement attempts via RDP identified and blocked
+- Defender triggered automated containment and quarantines
 
-Shortly after, a successful sign-in was observed from Amsterdam, indicating unauthorized access and triggering an impossible travel alert under Microsoft Entra ID Identity Protection.
+### Timeline of Events: 
+- 10:07 PM – Phishing email delivered to user mailbox
+- 10:10 PM – Malicious URL clicked by user
+- 10:39 PM – Suspicious login from Amsterdam detected (impossible travel)
+- 10:52 PM – First endpoint detection (HOK alert generated)
+- 11:07 PM – Incident containment initiated (Defender response)
+- 11:17 PM – Lateral movement via RDP blocked
+- 11:44 PM – Last observed malicious activity
+- Post 11:44 PM – Multiple quarantine actions executed
 
-The attacker then leveraged the compromised credentials to gain access to the environment and perform hands-on-keyboard activity on the Windows11 endpoint.
+### 5W1H Analysis
 
-Endpoint telemetry confirmed execution of credential dumping tools (Mimikatz), PowerShell activity, and interaction with the LSASS process. These behaviors are strongly associated with post-exploitation credential theft and lateral movement preparation.
+#### Who:
+- User: jenny
+- Endpoint: Windows11
+- Machine Account: WINDOWS11$
+- Detection Source: Microsoft Defender for Endpoint
 
-Microsoft Defender correlated email, identity, and endpoint signals, confirming a full phishing-led compromise lifecycle. Automated attack disruption actions were triggered, including account containment, RDP blocking, and quarantine of malicious artifacts.
+#### What:
+- High-severity “Potential human-operated malicious activity” alert
+- Phishing-led credential compromise
+- Endpoint execution of credential dumping and PowerShell activity
+- Lateral movement attempts via RDP
 
-### Triage (5W1H Analysis):
-- Who:
-  - Sender: strangeaccount88@proton.me
-  - Source IP: 79.135.106.97 (malicious reputation confirmed via AbuseIPDB)
-- What:
-  - Phishing email containing:
-    - Malicious URL
-    - Suspicious attachment (Salary Revision.docx)
-- When:
-  - June 18, 2026 – 21:04 (UTC +04:00)
-- Where:
-  - Recipient: bob@corp88.onmicrosoft.com
-  - Subject: Salary Revision
-- Why:
-  - Likely objective: credential harvesting, malware delivery, or unauthorized access to internal resources.
-- How:
-  - Email successfully bypassed email security controls and was delivered to the user mailbox; bypass vector under investigation.
+#### When:
+- Initial compromise: 10:07 PM
+- Endpoint activity: 10:52 PM – 11:44 PM (22-Jun-2026)
+
+#### Where:
+- Windows11 endpoint
+- External login observed from Amsterdam
+- Internal network: 192.168.126.1 / 192.168.126.156
+
+#### Why:
+- Initial access gained via phishing email containing malicious URL
+- Credentials were stolen and reused for unauthorized access
+
+#### How:
+- User interaction with phishing link led to credential compromise
+- Attacker used stolen credentials to access mailbox and endpoint
+- Executed Mimikatz, PowerShell, and LSASS interaction for credential theft
+- Attempted lateral movement via RDP
+- Defender correlated multi-layer telemetry and triggered automated containment
+
 
 ### Response Actions:
 - Removed phishing email from all affected mailboxes.
