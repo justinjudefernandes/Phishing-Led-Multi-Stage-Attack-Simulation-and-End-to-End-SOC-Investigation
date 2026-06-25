@@ -51,13 +51,14 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
 ### STEP 1: Phishing Email (Email Security Simulation)
 - A phishing email was sent to user Jenny’s mailbox from a random external sender.
 - Microsoft Defender Safe Links rewrote the embedded malicious URL for protection tracking.
-- The user clicked the rewritten link, which redirected to a DocuSign-like credential harvesting page.
+- The user Jenny clicked the rewritten link, which redirected to a DocuSign-like credential harvesting page.
 - Jenny entered her username and password, simulating credential theft.
 - This stage represented initial access via phishing and social engineering.
 
-📌 Refer to the below screenshots for policy configuration and summary details.
-
-
+📌 Refer to the below screenshots:
+<img width="605" height="324" alt="image" src="https://github.com/user-attachments/assets/99ad9052-ae06-4313-a751-5f0263aa0ad7" />
+<img width="701" height="380" alt="image" src="https://github.com/user-attachments/assets/1f991a43-dfb7-4959-ae06-20f7ce7e38e8" />
+<img width="697" height="340" alt="image" src="https://github.com/user-attachments/assets/c3909741-7ca9-461d-bf56-a5fa1b6e4375" />
 
 
 ### STEP 2: Hijacking Identity (Identity Protection & Impossible Travel Simulation)
@@ -71,7 +72,14 @@ The investigation included validating alerts in Microsoft Defender XDR, analyzin
     - “Use a web account to sign in to the remote computer”
 - Connected using hostname-based RDP access to simulate attacker persistence and access.
 
-📌 Refer to the below screenshots for policy summary and configuration settings.
+📌 Refer to the below screenshots:
+<img width="703" height="380" alt="image" src="https://github.com/user-attachments/assets/2dd8257a-e69d-4ea8-87bd-81f587949861" />
+<img width="635" height="373" alt="image" src="https://github.com/user-attachments/assets/c271fea5-ac51-4302-9ca7-67cdff2e8557" />
+<img width="750" height="401" alt="image" src="https://github.com/user-attachments/assets/25930f2f-8f7a-4434-b031-8df7c79d6275" />
+
+
+
+
 
 
 ### STEP 3: Compromising Endpoints (Endpoint Threat Simulation)
