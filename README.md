@@ -224,40 +224,54 @@ The attack chain progressed from phishing email interaction to credential theft,
             ) on NetworkMessageId
             | order by Timestamp desc
 ```
-•	Find users who received the email with subject "Invoice is ready for viewing"
-EmailEvents
-| where Subject contains "Invoice is ready for viewing"
-| project Timestamp, RecipientEmailAddress, SenderFromAddress, Subject
-| order by Timestamp desc
-•	Looked for suspicious sign-ins from foreign countries:
-SigninLogs
-| where LocationDetails.countryOrRegion != "AE"
-| project TimeGenerated, Identity, Location, AppDisplayName
-| order by TimeGenerated desc
-•	Checked for lateral movement attempts using RDP:
-DeviceNetworkEvents
-| where RemotePort == 3389
-| project Timestamp, DeviceName, InitiatingProcessAccountName, RemoteIP
-| order by Timestamp desc
-•	Searched for suspicious remote logons:
-DeviceLogonEvents
-| where LogonType == "RemoteInteractive"
-| project Timestamp, DeviceName, AccountName, RemoteIP
-| order by Timestamp desc
-•	Checked for PowerShell activity after the compromise:
-DeviceProcessEvents
-| where FileName =~ "powershell.exe"
-| project Timestamp, DeviceName, AccountName, ProcessCommandLine
-| order by Timestamp desc
-•	Searched for additional users triggering similar alerts:
-AlertInfo
-| where Title contains "Potential human-operated malicious activity"
-| project Timestamp, Title, Severity, ServiceSource
-| order by Timestamp desc
 
+- Find users who received the email with subject "Invoice is ready for viewing"
+```KQL Query:
+            EmailEvents
+            | where Subject contains "Invoice is ready for viewing"
+            | project Timestamp, RecipientEmailAddress, SenderFromAddress, Subject
+            | order by Timestamp desc
+```
 
+- Looked for suspicious sign-ins from foreign countries:
+```KQL Query:
+            SigninLogs
+            | where LocationDetails.countryOrRegion != "AE"
+            | project TimeGenerated, Identity, Location, AppDisplayName
+            | order by TimeGenerated desc
+```
 
+- Checked for lateral movement attempts using RDP:
+```KQL Query:
+            DeviceNetworkEvents
+            | where RemotePort == 3389
+            | project Timestamp, DeviceName, InitiatingProcessAccountName, RemoteIP
+            | order by Timestamp desc
+```
 
+- Searched for suspicious remote logons:
+```KQL Query:
+            DeviceLogonEvents
+            | where LogonType == "RemoteInteractive"
+            | project Timestamp, DeviceName, AccountName, RemoteIP
+            | order by Timestamp desc
+```
+
+- Checked for PowerShell activity after the compromise:
+```KQL Query:
+            DeviceProcessEvents
+            | where FileName =~ "powershell.exe"
+            | project Timestamp, DeviceName, AccountName, ProcessCommandLine
+            | order by Timestamp desc
+```
+
+- Searched for additional users triggering similar alerts:
+```KQL Query:
+            AlertInfo
+            | where Title contains "Potential human-operated malicious activity"
+            | project Timestamp, Title, Severity, ServiceSource
+            | order by Timestamp desc
+```
 
 ### Response Actions:
 - Reset compromised user credentials (Jenny)
