@@ -170,6 +170,7 @@ The attack chain progressed from phishing email interaction to credential theft,
 
 
 
+
 ### Correlation Analysis (Attack Chain):
 - Phishing Email delivered to user jenny
 - User clicked malicious URL (DocuSign-style credential harvester simulation)
